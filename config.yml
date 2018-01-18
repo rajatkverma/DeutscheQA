@@ -1,0 +1,7 @@
+# configuration of the server
+server:
+  host: 0.0.0.0
+  port: 8200
+
+# path to save app log
+log_path: log/app.log
