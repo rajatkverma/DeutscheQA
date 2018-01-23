@@ -4,4 +4,4 @@ server:
   port: 8200
 
 # path to save app log
-log_path: log/app.log
+log_path: app.log

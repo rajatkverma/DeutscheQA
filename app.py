@@ -21,17 +21,17 @@ def answer():
     question = request.data
 
     # build chunks, keywords
-    chunks_keywords = get_chuncks_keywords(question)
+    # chunks_keywords = get_chuncks_keywords(question)
 
     # entity linking
-    entity_linked = get_linked_entity(question)
+    # entity_linked = get_linked_entity(question)
 
     # get answer
-    possible_answers = get_answers(question, chunks_keywords, entity_linked)
+    # possible_answers = get_answers(question, chunks_keywords, entity_linked)
 
     # results
-    result = dict
-    result['answer'] = possible_answers
+    result = dict()
+    result['answer'] = 'possible_answers'
 
     return jsonify(result)
 
