@@ -3,6 +3,7 @@ from logging.handlers import RotatingFileHandler
 from flask import Flask, jsonify, request
 from flask_cors import CORS
 from src.lib import Config
+from src.entityLinker import get_linked_entity
 
 
 app = Flask(__name__)
@@ -24,7 +25,7 @@ def answer():
     # chunks_keywords = get_chuncks_keywords(question)
 
     # entity linking
-    # entity_linked = get_linked_entity(question)
+    entity_linked = get_linked_entity(question)
 
     # get answer
     # possible_answers = get_answers(question, chunks_keywords, entity_linked)
