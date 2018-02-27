@@ -2,7 +2,7 @@
 
  
 ## Run DeutscheQA within docker container
-You could build and run docker with the following instructions.
+Build and Run using the following instructions.
 
 ### Build docker image
 
@@ -13,7 +13,7 @@ You could build and run docker with the following instructions.
 `sudo docker run -d -p 8200:8200 --name fhg_asknow asknow`
 
 ## Run the UI part within docker container
-After entering the "ui" directory of the project, you could build and run docker with the following instructions.
+After entering the "ui" directory of the project, Build and Run docker using the following instructions.
 
 ### Build docker image
 
