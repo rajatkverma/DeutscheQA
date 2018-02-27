@@ -4,6 +4,7 @@ from flask import Flask, jsonify, request
 from flask_cors import CORS
 from src.lib import Config
 from src.entityLinker import get_linked_entity
+from src.keywordExtractor import get_chuncks_keywords
 
 
 app = Flask(__name__)
@@ -22,7 +23,7 @@ def answer():
     question = request.data
 
     # build chunks, keywords
-    # chunks_keywords = get_chuncks_keywords(question)
+    chunks_keywords = get_chuncks_keywords(question)
 
     # entity linking
     entity_linked = get_linked_entity(question)

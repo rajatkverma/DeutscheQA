@@ -1,8 +1,8 @@
 import spacy
 #from spacy import displacy
-import entityLinker as el
+#import entityLinker as el
 
-def get_chuncks_keywords(question,recognized_entites,language='de'):
+def get_chuncks_keywords(question,language='de'):
     
     # Load tokenizer, tagger, parser, NER and word vectors
     nlp = spacy.load(language)
@@ -24,18 +24,21 @@ def get_chuncks_keywords(question,recognized_entites,language='de'):
     categories = [cat for cat in doc.cats]
     
     # Collect Tokens
-    ents = list(set([ent[0] for ent in entities]).union([ent['surfaceForm'] for ent in recognized_entites]))
-    ents_annotated = [(token,entity['URI']) for entity in recognized_entites for token in ents if token == entity['surfaceForm']] 
-    missing_entities = [(ent,'') for ent in ents if ent not in [x[0] for x in ents_annotated]]
-    tokens = ents_annotated + missing_entities + [(tag[0],'') for tag in pos if tag[1] == u'VERB']
+    #ents = [ent[0] for ent in entities]
+    #ents_annotated = [(token,entity['URI']) for entity in recognized_entites for token in ents if token == entity['surfaceForm']] 
+    #missing_entities = [(ent,'') for ent in ents if ent not in [x[0] for x in ents_annotated]]
+    #tokens = ents_annotated + missing_entities + [(tag[0],'') for tag in pos if tag[1] == u'VERB']
+    tokens = entities + [(tag[0],'') for tag in pos if tag[1] == u'VERB']
     
     return entities, pos, dep, nouns, categories, tokens
 
 if __name__ == '__main__':
     
     question = u'Wann sind Barack Obama und Michelle Obama in die Vereinigten Staaten ausgewandert?'
-    recognized_entites = el.get_linked_entity(question)
-    entities, pos, dep, nouns, cats, tokens = get_chuncks_keywords(question,recognized_entites)
+    #question = 'Did you read Game of thrones today?'
+    #recognized_entites = el.get_linked_entity(question)
+    #recognized_entites=[]
+    entities, pos, dep, nouns, cats, tokens = get_chuncks_keywords(question)
     
     print('====== Entities ======')
     
